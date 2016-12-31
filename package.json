@@ -1,0 +1,19 @@
+{
+  "name": "musicplayer",
+  "version": "0.0.0",
+  "description": "A musicplayer based on Mopidy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "music",
+    "player",
+    "mopidy"
+  ],
+  "author": "Tijmen Wierenga",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
