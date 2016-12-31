@@ -1,5 +1,6 @@
 {
   "name": "musicplayer",
+  "repository": "tijmenwierenga/musicplayer",
   "version": "0.0.0",
   "description": "A musicplayer based on Mopidy",
   "main": "index.js",
@@ -15,5 +16,8 @@
   "license": "MIT",
   "devDependencies": {
     "gulp": "^3.9.1"
+  },
+  "dependencies": {
+    "vue": "^2.1.8"
   }
 }
