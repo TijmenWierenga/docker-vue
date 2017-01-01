@@ -1,3 +1,10 @@
 #!/usr/bin/env bash
 
-docker run -it --rm --name npm -v  $(pwd):/app -w /app node-mp "$@"
+docker run \
+    -it \
+    --rm \
+    --name npm \
+    -v $(pwd)/app:/app \
+    -w /app \
+    -p 80:8080 \
+    tijmenwierenga-node:dev "$@"

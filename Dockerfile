@@ -1,10 +1,15 @@
-FROM node:7.3.0-alpine
+FROM node:argon
 
 WORKDIR /app
 
+RUN npm --user root --unsafe-perm true install npm -g
+
 RUN npm install -g --silent \
     yarn \
-    gulp \
     vue-cli
 
-EXPOSE 8888
+#ADD ./app /app
+
+EXPOSE 8080
+
+CMD ["npm", "run", "dev"]
