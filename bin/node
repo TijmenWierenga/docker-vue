@@ -4,6 +4,7 @@ docker run \
     -it \
     --rm \
     --name npm \
+    -h node-js \
     -v $(pwd)/app:/app \
     -w /app \
     -p 80:8080 \
