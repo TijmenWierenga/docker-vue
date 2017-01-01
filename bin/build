@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+CONTAINER_NAME=tijmenwierenga-node:dev
+
+# Build container
+docker build -t ${CONTAINER_NAME} .
+# Init new Vue project
+docker run \
+    -it \
+    --rm \
+    -v $(pwd)/app:/app \
+    -w / \
+    ${CONTAINER_NAME} \
+    vue init webpack app
+
+# Install dependencies
+docker run \
+    -it \
+    --rm \
+    -v $(pwd)/app:/app \
+    -w /app \
+    ${CONTAINER_NAME} \
+    npm install
+
+# Copy dev-server file to enable hot reloading
+cp -R $PWD/server/dev-server.js $PWD/app/build/dev-server.js
+
+# Start development server
+docker run \
+    -it \
+    --rm \
+    --name npm \
+    -v $(pwd)/app:/app \
+    -w /app \
+    -p 80:8080 \
+    ${CONTAINER_NAME} \
+    npm run dev
